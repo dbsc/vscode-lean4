@@ -34,10 +34,10 @@ export async function findLeanPackageRoot(uri: Uri) : Promise<[WorkspaceFolder |
         });
     }
     let searchUpwards = false;
-    if (wsFolder){
-        // jump to the real workspace folder if we have a Workspace for this file.
-        path = wsFolder.uri;
-    } else if (path.scheme === 'file') {
+    // if (wsFolder){
+    //     // jump to the real workspace folder if we have a Workspace for this file.
+    //     path = wsFolder.uri;
+    if (path.scheme === 'file') {
         // then start searching from the directory containing this document.
         // The given uri may already be a folder Uri in some cases.
         if (fs.lstatSync(path.fsPath).isFile()) {
